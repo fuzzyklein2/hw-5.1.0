@@ -1,10 +1,10 @@
 from .startup import *
-from .program import Program
+from .filter import Filter
 
 if __name__ == '__main__':
     print(PROGRAM)
     log.info(f'Executing {PROGRAM} ...')
     
-    p = Program()
+    p = Filter()
     
     log.info(f'Execution complete.')

@@ -168,3 +168,12 @@ def get_stdin_input():
 
 INPUT = get_stdin_input()
 log.info(F'{INPUT=}')
+
+FOLLOW = ARGS.follow
+RECURSIVE = ARGS.recursive
+PROCESS_ALL = ARGS.all
+
+log.info(f'{FOLLOW=}\n{RECURSIVE=}\n{PROCESS_ALL=}')
+
+CWD = Path.cwd()
+log.info(f'{CWD=}')
