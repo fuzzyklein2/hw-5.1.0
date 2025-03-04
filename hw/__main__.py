@@ -1,3 +1,6 @@
+if __debug__:
+    breakpoint()
+
 from .startup import *
 from .filter import Filter
 

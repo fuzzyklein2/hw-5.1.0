@@ -40,6 +40,7 @@ import select
 from shlex import split
 import sys
 import warnings
+from warnings import warn
 
 if __debug__:
     print(f"Initializing {Path(__file__).parent.stem}")
@@ -143,7 +144,7 @@ logger.addHandler(file_handler)
 log = logging.getLogger(__name__)
 
 log.info("Logging configuration complete.")
-warnings.warn("This program is still in development. Beware of bugs!")
+warn("This program is still in development. Beware of bugs!")
 
 # print(f'{ARGS.config=}')
 # print(f'{os.getenv('config')=}')
