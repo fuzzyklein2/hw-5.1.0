@@ -1,9 +1,10 @@
 __doc__ = """
 hw
-A toolkit for efficient data processing and visualization.
 
-Version: 1.2.0
-Author: Jane Doe
+A skeleton of a Python command line application.
+
+Version: 5.1.0
+Author: Russell Klein
 License: MIT
 
 This package provides:
