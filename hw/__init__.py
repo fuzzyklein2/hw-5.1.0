@@ -43,6 +43,7 @@ import warnings
 from warnings import warn
 
 if __debug__:
+    breakpoint()
     print(f"Initializing {Path(__file__).parent.stem}")
 
 RUNNING_IN_JUPYTER = Path(sys.argv[0]).stem.startswith('ipykernel')
@@ -81,7 +82,7 @@ STD_OPTS = [[[],
       [["-o", "--output"], {"dest": "output", "help": "Specify a file to be used as output."}],
       [["-q", "--quiet"], {"action": "store_true", "dest": "quiet", "help": "Suppress screen output."}],
       [["-l", "--log"], {"dest": "log", "help": "Specify a log file."}],
-      [["-w", "--warnings"], {"dest": "warnings", "help": "Display warning messages."}]
+      [["-w", "--warnings"], {"action": "store_true", "dest": "warnings", "help": "Display warning messages."}]
     ]
 
 ap = AP(prog=PROGRAM, description=DESCRIPTION, epilog=EPILOG)
@@ -95,6 +96,8 @@ ARGS = ap.parse_args(sys.argv[1:] if RUNNING_CLI else split(os.environ['CMD_LINE
 #     print(f'{ARGS.verbose=}')
 
 VERBOSE = ARGS.verbose
+WARNINGS = ARGS.warnings
+TESTING = ARGS.testing
 
 # if VERBOSE:
 #     print("Checking for log file...")
@@ -123,8 +126,10 @@ if __debug__:
     level = logging.DEBUG
 elif VERBOSE:
     level = logging.INFO
-else:
+elif WARNINGS or TESTING:
     level = logging.WARNING
+else:
+    level = logging.ERROR
 
 formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 

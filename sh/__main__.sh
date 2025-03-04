@@ -54,9 +54,9 @@ DIR_NAME="$(basename "$SCRIPT_DIR")"
 STEM="${DIR_NAME%%-*}"
 
 PYTHON_SCRIPT="$STEM"
-echo $PYTHON_SCRIPT
+# echo $PYTHON_SCRIPT
 LOGFILE="./log/$STEM.log"
-echo $LOGFILE
+# echo $LOGFILE
 rm $LOGFILE
 touch $LOGFILE
 
