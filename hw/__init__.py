@@ -32,6 +32,7 @@ Example Usage: ./run -v
 """
 
 from argparse import ArgumentParser as AP
+import atexit
 from configparser import ConfigParser as CP
 import logging
 import os
@@ -172,6 +173,11 @@ def get_stdin_input():
     if select.select([sys.stdin], [], [], 0.0)[0]:
         return sys.stdin.read()
     return None
+
+def say_goodbye():
+    log.info("Execution complete.")
+
+atexit.register(say_goodbye)
 
 INPUT = get_stdin_input()
 log.info(F'{INPUT=}')

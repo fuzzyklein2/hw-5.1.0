@@ -10,4 +10,4 @@ if __name__ == '__main__':
     
     p = Filter()
     
-    log.info(f'Execution complete.')
+    # log.info(f'Execution complete.')
